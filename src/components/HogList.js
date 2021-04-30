@@ -7,8 +7,7 @@ function HogList({hogs}) {
     return (
         <>
         <h1>Hog List</h1>
-        <div className="ui grid container" >
-            
+        <div className="ui grid container">
             {hogArray}
         </div>
         </>

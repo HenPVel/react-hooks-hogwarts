@@ -1,11 +1,27 @@
+import { useState } from "react";
 
-function HogTile({name,specialty,greased,weight,image}) {
+function HogTile(hogObj) {
+    const {name, specialty, greased, weight, image} = hogObj
+    const medal = hogObj["highest medal achieved"]
+
+    const [details, setDetails] = useState(false)
+    function toggleDetails() {
+        setDetails(!details)
+    }
+
     return (
-        <div className="ui eight wide column pigTile" >
-            <h1>Name: {name}</h1>
-            <img src={image} alt={name} width="250"/>
+        <div onClick={toggleDetails} className="ui seven wide column pigTile" >
+            <h1>{name}</h1>
+            <img src={image} alt={name} width="220" />
+            <ul style={{ display: details ? "" : "none" }}>
+                <li>"{specialty}"</li>
+                <li>{weight} Pounds of Bacon</li>
+                <li>{greased ? "Greased Up Babyyy" : "Super Dry"}</li>
+                <li>Medal: {medal.toUpperCase()}</li>
+            </ul>
         </div>
     )
 }
 
 export default HogTile
+
