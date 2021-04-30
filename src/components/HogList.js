@@ -1,8 +1,8 @@
 import HogTile from "./HogTile"
 
-function HogList({hogs}) {
+function HogList({hogs, removeHog}) {
     
- const hogArray = hogs.map(hog => <HogTile {...hog} />)
+ const hogArray = hogs.map(hog => <HogTile {...hog} removeHog = {removeHog}/>)
     
     return (
         <>
